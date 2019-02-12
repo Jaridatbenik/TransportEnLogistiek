@@ -63,6 +63,7 @@
     <Compile Include="Assets\SCRIPTS\Core\Scene-Essentials\AppHandler.cs" />
     <Compile Include="Assets\SCRIPTS\Core\Scene-Essentials\BootUp_Redirect.cs" />
     <Compile Include="Assets\SCRIPTS\Core\SceneSwitcher.cs" />
+    <Compile Include="Assets\SCRIPTS\Core\TimeSystem.cs" />
     <Compile Include="Assets\SCRIPTS\UI\HoverButton.cs" />
     <Compile Include="Assets\SCRIPTS\UI\HoverMessageHandler.cs" />
     <Compile Include="Assets\SCRIPTS\UI\HoverObject.cs" />
