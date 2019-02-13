@@ -5,7 +5,9 @@ using UnityEngine;
 public class TimeSystem : MonoBehaviour
 {
     float currentTime = 0;
-    public float timeSpeed = 2;
+    public float timeSpeed = 60;
+    [SerializeField]
+    float extraMultiplier = 2;
 
     int hours = 9;
     int minutes = 0;
@@ -30,7 +32,7 @@ public class TimeSystem : MonoBehaviour
         baseColor = hour_min.color;    
     }
 
-    void FixedUpdate()
+    void LateUpdate()
     {
         AddTime();
         SetText();
@@ -60,11 +62,11 @@ public class TimeSystem : MonoBehaviour
         {
             months++;
             days = 0;
+            NewMonth();
         }
         if (months >= 12)
         {
-            months = 0;
-            print("YEAR");
+            months = 0;            
         }
     }
 
@@ -98,6 +100,12 @@ public class TimeSystem : MonoBehaviour
         {
             StopWorking();
         }
+    }
+
+    void NewMonth()
+    {
+        print("NEW MONTH");
+
     }
 
     void StartWorking()
