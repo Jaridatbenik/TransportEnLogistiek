@@ -32,7 +32,7 @@ public class TimeSystem : MonoBehaviour
         baseColor = hour_min.color;    
     }
 
-    void LateUpdate()
+    void Update()
     {
         AddTime();
         SetText();
@@ -41,33 +41,37 @@ public class TimeSystem : MonoBehaviour
 
     void AddTime()
     {
-        currentTime += timeSpeed;
+        currentTime += timeSpeed * extraMultiplier;
 
-        if (currentTime >= 60)
-        {
+        int minIncrement = Mathf.RoundToInt(currentTime / 60);
+        if (minIncrement > 0)
+        {            
+            minutes += minIncrement;
             currentTime = 0;
-            minutes++;
         }
-        if (minutes >= 60)
+        int hourIncrement = Mathf.RoundToInt(minutes / 60);
+        if (hourIncrement > 0)
         {
-            minutes = 0;
-            hours++;
+            hours += hourIncrement;
+            minutes = 0;            
         }
-        if (hours >= 24)
+        int dayIncrement = Mathf.RoundToInt(hours / 24);
+        if (dayIncrement > 0)
         {
-            hours = 0;
-            days++;
+            days += dayIncrement;
+            hours = 0;            
         }
-        if (days >= monthDayAmount[months])
+        int monthIncrement = Mathf.RoundToInt(days / monthDayAmount[months]);
+        if (monthIncrement > 0)
         {
-            months++;
+            months += monthIncrement;
             days = 0;
             NewMonth();
         }
         if (months >= 12)
         {
             months = 0;            
-        }
+        }        
     }
 
     void SetText()
@@ -105,7 +109,6 @@ public class TimeSystem : MonoBehaviour
     void NewMonth()
     {
         print("NEW MONTH");
-
     }
 
     void StartWorking()
