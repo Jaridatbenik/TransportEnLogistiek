@@ -13,7 +13,7 @@ public class HoverButton : MonoBehaviour
     Color baseColor;
     
     [SerializeField]
-    RectTransform hoverMessage;
+    RectTransform hoverMessage = null;
     RectTransform hoverMessageImage;    
 
     [SerializeField]
@@ -24,7 +24,7 @@ public class HoverButton : MonoBehaviour
     bool hovering = false;
 
     [SerializeField]
-    UnityEvent onClick;
+    UnityEvent onClick = null;
 
     void Awake()
     {

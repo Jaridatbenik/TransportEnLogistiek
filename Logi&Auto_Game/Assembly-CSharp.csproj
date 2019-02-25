@@ -67,6 +67,7 @@
     <Compile Include="Assets\SCRIPTS\UI\HoverButton.cs" />
     <Compile Include="Assets\SCRIPTS\UI\HoverMessageHandler.cs" />
     <Compile Include="Assets\SCRIPTS\UI\HoverObject.cs" />
+    <Compile Include="Assets\SCRIPTS\UI\TaskBar\Stats_S\StatsAnimEvents.cs" />
     <Compile Include="Assets\SCRIPTS\UI\Transitions\NewTransition.cs" />
     <None Include="Assets\TextMesh Pro\Resources\Shaders\TMP_SDF-Surface-Mobile.shader" />
     <None Include="Assets\TextMesh Pro\Resources\LineBreaking Leading Characters.txt" />
