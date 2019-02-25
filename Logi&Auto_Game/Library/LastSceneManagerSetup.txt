@@ -1,4 +1,4 @@
 sceneSetups:
-- path: Assets/SCENES/Build-Scenes/Gameplay.unity
+- path: Assets/SCENES/TestScenes/Colin_TScene.unity
   isLoaded: 1
   isActive: 1
