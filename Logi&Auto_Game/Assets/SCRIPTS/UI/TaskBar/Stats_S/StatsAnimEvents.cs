@@ -4,13 +4,14 @@ using UnityEngine;
 
 public class StatsAnimEvents : MonoBehaviour
 {
-    public UnityEvent openedLeft = null;
-    public UnityEvent openedRight = null;
+    [SerializeField] UnityEvent openedLeft = null;
+    [SerializeField] UnityEvent openedRight = null;
+    [SerializeField] UnityEvent openedCenter = null;
 
     public UnityEvent shrunk = null;
 
     Animator anim = null;
-    [SerializeField]Button exitButton;
+    [SerializeField]Button exitButton = null;
 
     void Start()
     {
@@ -28,6 +29,12 @@ public class StatsAnimEvents : MonoBehaviour
         exitButton.onClick.RemoveAllListeners();
         exitButton.onClick.AddListener(openedRight.Invoke);        
     }    
+
+    public void ANIM_OpenedCenter()
+    {
+        exitButton.onClick.RemoveAllListeners();
+        exitButton.onClick.AddListener(openedCenter.Invoke);
+    }
 
     public void ANIM_Shrunk()
     {
