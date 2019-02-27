@@ -191,7 +191,18 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 44075396}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 44075398}
+        m_MethodName: CheckInvestments
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
     m_TypeName: UnityEngine.UI.Button+ButtonClickedEvent, UnityEngine.UI, Version=1.0.0.0,
       Culture=neutral, PublicKeyToken=null
 --- !u!114 &44075396
@@ -243,6 +254,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fa37d19a114b7cf49b7dbc440a534da0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  lines:
+  - {fileID: 1209548367}
+  - {fileID: 1162075171}
+  - {fileID: 1728858740}
+  - {fileID: 86835705}
+  ButtonImage: {fileID: 44075396}
+  ThisButton: {fileID: 44075395}
+  AmountOfInvestments: 0
 --- !u!1 &67064008
 GameObject:
   m_ObjectHideFlags: 0

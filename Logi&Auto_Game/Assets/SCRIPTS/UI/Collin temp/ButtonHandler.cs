@@ -5,6 +5,7 @@ using UnityEngine.UI;
 
 public class ButtonHandler : MonoBehaviour
 {
+    private ButtonTier2Handler bt2h;
     private MoneyTest mT;
     public Image Tier1Line;
     public Image Tier2Line;
@@ -17,6 +18,7 @@ public class ButtonHandler : MonoBehaviour
     private void Start()
     {
         mT = FindObjectOfType<MoneyTest>();
+        bt2h = FindObjectOfType<ButtonTier2Handler>();
     }
 
     private void Update()
@@ -43,7 +45,7 @@ public class ButtonHandler : MonoBehaviour
             Tier2Line.color = Color.yellow;
             ButtonImage.color = Color.green;
             ThisButton.interactable = false;
+            bt2h.AmountOfInvestments++;
         }
-    }
-
+    }   
 }

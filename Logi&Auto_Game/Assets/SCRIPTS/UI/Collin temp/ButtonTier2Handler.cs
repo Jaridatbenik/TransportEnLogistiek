@@ -7,8 +7,9 @@ public class ButtonTier2Handler : MonoBehaviour
 {
     private MoneyTest mT;
 
-    public Image ButtonImage;
+    public Image[] lines;
 
+    public Image ButtonImage;
     public Button ThisButton;
 
     public int AmountOfInvestments;
@@ -22,6 +23,10 @@ public class ButtonTier2Handler : MonoBehaviour
         mT = FindObjectOfType<MoneyTest>();
         ButtonImage.color = Color.grey;
         ThisButton.interactable = false;
+        foreach (Image line in lines)
+        {
+            line.color = Color.gray;
+        }
     }
 
     private void Update()
@@ -37,14 +42,27 @@ public class ButtonTier2Handler : MonoBehaviour
                 ButtonImage.color = Color.red;
             }
         }
-    }
 
-    public void CheckInvestments(int i)
-    {
-        if (i == 4)
+        if (AmountOfInvestments == 4)
         {
             ThisButton.interactable = true;
             canInvest = true;
+        }
+    }
+
+    public void CheckInvestments()
+    {
+        if (mT.Money >= 100)
+        {
+            foreach (Image line in lines)
+            {
+                line.color = Color.green;
+            }
+
+            mT.RemoveMoney();
+            invested = true;
+            ButtonImage.color = Color.green;
+            ThisButton.interactable = false;
         }
     }
 
