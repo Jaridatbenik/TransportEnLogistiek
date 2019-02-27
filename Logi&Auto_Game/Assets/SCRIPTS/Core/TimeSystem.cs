@@ -9,7 +9,7 @@ public class TimeSystem : MonoBehaviour
     [SerializeField]
     List<float> extraMultiplier = new List<float>();
     [SerializeField]
-    TextMeshProUGUI multiplierText;
+    TextMeshProUGUI multiplierText = null;
     int currentIndex = 0;
 
     int hours = 9;
@@ -22,9 +22,9 @@ public class TimeSystem : MonoBehaviour
     List<int> monthDayAmount = new List<int>();
 
     [SerializeField]
-    TextMeshProUGUI hour_min;
+    TextMeshProUGUI hour_min = null;
     [SerializeField]
-    TextMeshProUGUI day_month;
+    TextMeshProUGUI day_month = null;
     Color baseColor;
     [SerializeField]
     Color homeHourColor = Color.red;
@@ -117,6 +117,7 @@ public class TimeSystem : MonoBehaviour
     void NewMonth()
     {
         print("NEW MONTH");
+        //Send Mail.
     }
 
     void StartWorking()
