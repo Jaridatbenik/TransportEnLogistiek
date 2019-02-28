@@ -66,6 +66,7 @@
     <Compile Include="Assets\SCRIPTS\Core\TimeSystem.cs" />
     <Compile Include="Assets\SCRIPTS\UI\Collin temp\ButtonHandler.cs" />
     <Compile Include="Assets\SCRIPTS\UI\Collin temp\ButtonTier2Handler.cs" />
+    <Compile Include="Assets\SCRIPTS\UI\Collin temp\Collin temp 2\CheckIfInvested.cs" />
     <Compile Include="Assets\SCRIPTS\UI\Collin temp\Collin temp 2\InvesteringHandler.cs" />
     <Compile Include="Assets\SCRIPTS\UI\Collin temp\MoneyTest.cs" />
     <Compile Include="Assets\SCRIPTS\UI\HoverButton.cs" />
