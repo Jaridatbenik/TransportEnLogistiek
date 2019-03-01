@@ -1,4 +1,4 @@
 sceneSetups:
-- path: Assets/SCRIPTS/UI/Collin temp/Collin temp 2/Colin_TScene 2.unity
+- path: Assets/SCENES/Build-Scenes/Gameplay.unity
   isLoaded: 1
   isActive: 1

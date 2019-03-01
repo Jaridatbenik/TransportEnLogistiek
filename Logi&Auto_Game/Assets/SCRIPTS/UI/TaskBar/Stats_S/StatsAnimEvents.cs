@@ -8,6 +8,8 @@ public class StatsAnimEvents : MonoBehaviour
     [SerializeField] UnityEvent openedRight = null;
     [SerializeField] UnityEvent openedCenter = null;
 
+    [SerializeField]TaskbarButton_Behaviour taskbar_behaviour = null;
+
     public UnityEvent shrunk = null;
 
     Animator anim = null;
@@ -40,5 +42,13 @@ public class StatsAnimEvents : MonoBehaviour
     {
         exitButton.onClick.RemoveAllListeners();
         exitButton.onClick.AddListener(shrunk.Invoke);        
+    }
+
+
+
+
+    public void CloseWithExitButton()
+    {
+        taskbar_behaviour.active = false;
     }
 }
