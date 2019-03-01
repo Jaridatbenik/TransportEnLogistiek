@@ -11,8 +11,7 @@ public class TaskbarButton_Behaviour : MonoBehaviour
 
     public void PressedButton()
     {        
-        taskbar_Mngr.ToggleTab(this, anim);
-        //active = !active;
+        taskbar_Mngr.ToggleTab(this, anim);        
         print(active);
     }
 
