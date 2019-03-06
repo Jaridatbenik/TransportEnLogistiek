@@ -7,4 +7,8 @@ public class CheckIfInvested : MonoBehaviour
     public bool Invested = false;
 
     public int InvestCost;
+
+    public string InvestName;
+
+    public int InvestTier;
 }

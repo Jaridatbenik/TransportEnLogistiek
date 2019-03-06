@@ -187,7 +187,7 @@ MonoBehaviour:
     m_HighlightedTrigger: Highlighted
     m_PressedTrigger: Pressed
     m_DisabledTrigger: Disabled
-  m_Interactable: 1
+  m_Interactable: 0
   m_TargetGraphic: {fileID: 44075396}
   m_OnClick:
     m_PersistentCalls:
@@ -218,7 +218,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_Color: {r: 0.35686275, g: 0.35686275, b: 0.35686275, a: 1}
   m_RaycastTarget: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
@@ -256,6 +256,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Invested: 0
   InvestCost: 150
+  InvestName: Model
+  InvestTier: 1
 --- !u!1 &67064008
 GameObject:
   m_ObjectHideFlags: 0
@@ -436,7 +438,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_Color: {r: 0.35686275, g: 0.35686275, b: 0.35686275, a: 1}
   m_RaycastTarget: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
@@ -474,6 +476,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Invested: 0
   InvestCost: 0
+  InvestName: 
+  InvestTier: 0
 --- !u!1 &204836399
 GameObject:
   m_ObjectHideFlags: 0
@@ -620,6 +624,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Invested: 0
   InvestCost: 100
+  InvestName: Motor
+  InvestTier: 1
 --- !u!1 &232500790
 GameObject:
   m_ObjectHideFlags: 0
@@ -709,6 +715,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Invested: 0
   InvestCost: 0
+  InvestName: 
+  InvestTier: 0
 --- !u!1 &235924872
 GameObject:
   m_ObjectHideFlags: 0
@@ -761,6 +769,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Invested: 0
   InvestCost: 0
+  InvestName: 
+  InvestTier: 0
 --- !u!114 &235924875
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -774,7 +784,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_Color: {r: 0.35686275, g: 0.35686275, b: 0.35686275, a: 1}
   m_RaycastTarget: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
@@ -1039,7 +1049,7 @@ MonoBehaviour:
     m_HighlightedTrigger: Highlighted
     m_PressedTrigger: Pressed
     m_DisabledTrigger: Disabled
-  m_Interactable: 1
+  m_Interactable: 0
   m_TargetGraphic: {fileID: 531740724}
   m_OnClick:
     m_PersistentCalls:
@@ -1071,6 +1081,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Invested: 0
   InvestCost: 300
+  InvestName: Model
+  InvestTier: 2
 --- !u!114 &531740724
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1084,7 +1096,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_Color: {r: 0.35686275, g: 0.35686275, b: 0.35686275, a: 1}
   m_RaycastTarget: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
@@ -1276,6 +1288,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Invested: 0
   InvestCost: 0
+  InvestName: 
+  InvestTier: 0
 --- !u!1 &657363813
 GameObject:
   m_ObjectHideFlags: 0
@@ -1432,7 +1446,7 @@ MonoBehaviour:
     m_HighlightedTrigger: Highlighted
     m_PressedTrigger: Pressed
     m_DisabledTrigger: Disabled
-  m_Interactable: 1
+  m_Interactable: 0
   m_TargetGraphic: {fileID: 658954661}
   m_OnClick:
     m_PersistentCalls:
@@ -1464,6 +1478,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Invested: 0
   InvestCost: 200
+  InvestName: Uitlaat
+  InvestTier: 2
 --- !u!114 &658954661
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1477,7 +1493,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_Color: {r: 0.35686275, g: 0.35686275, b: 0.35686275, a: 1}
   m_RaycastTarget: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
@@ -1615,29 +1631,41 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Money: 0
   MoneyText: {fileID: 1067154752}
+  InvestmentCost: 0
+  PTT2: 0
+  PTT3: 0
   Tier2_Button: {fileID: 44075395}
   Tier3_Button: {fileID: 531740722}
-  Li_T1_Button:
+  T1_Investment_Buttons:
   - {fileID: 204836399}
   - {fileID: 1516159349}
   - {fileID: 1986638772}
   - {fileID: 1003134262}
-  Li_T2_Button:
+  T2_Investment_Buttons:
   - {fileID: 1710052973}
   - {fileID: 658954657}
   - {fileID: 1523425512}
   - {fileID: 1236729390}
-  Li_T1_Image:
+  First_Investment_Line:
   - {fileID: 232500790}
   - {fileID: 1430801268}
   - {fileID: 652341923}
   - {fileID: 1821335918}
-  Li_T2_Image:
+  Second_Investment_Line:
   - {fileID: 1209548365}
   - {fileID: 1162075169}
   - {fileID: 1728858738}
   - {fileID: 86835703}
-  Li_T3_Image: []
+  Third_Investment_Line:
+  - {fileID: 1882002376}
+  - {fileID: 863889800}
+  - {fileID: 1698729798}
+  - {fileID: 1366812840}
+  Fourth_Investment_Line:
+  - {fileID: 1087010580}
+  - {fileID: 235924872}
+  - {fileID: 1868651614}
+  - {fileID: 1484047409}
 --- !u!1 &759280729
 GameObject:
   m_ObjectHideFlags: 0
@@ -1851,6 +1879,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Invested: 0
   InvestCost: 0
+  InvestName: 
+  InvestTier: 0
 --- !u!114 &863889803
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1864,7 +1894,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_Color: {r: 0.35686275, g: 0.35686275, b: 0.35686275, a: 1}
   m_RaycastTarget: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
@@ -2034,6 +2064,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Invested: 0
   InvestCost: 100
+  InvestName: Versnelling
+  InvestTier: 1
 --- !u!1 &1067154750
 GameObject:
   m_ObjectHideFlags: 0
@@ -2180,6 +2212,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Invested: 0
   InvestCost: 0
+  InvestName: 
+  InvestTier: 0
 --- !u!114 &1087010583
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2193,7 +2227,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_Color: {r: 0.35686275, g: 0.35686275, b: 0.35686275, a: 1}
   m_RaycastTarget: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
@@ -2347,7 +2381,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_Color: {r: 0.35686275, g: 0.35686275, b: 0.35686275, a: 1}
   m_RaycastTarget: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
@@ -2385,6 +2419,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Invested: 0
   InvestCost: 0
+  InvestName: 
+  InvestTier: 0
 --- !u!1 &1209548365
 GameObject:
   m_ObjectHideFlags: 0
@@ -2436,7 +2472,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_Color: {r: 0.35686275, g: 0.35686275, b: 0.35686275, a: 1}
   m_RaycastTarget: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
@@ -2474,6 +2510,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Invested: 0
   InvestCost: 0
+  InvestName: 
+  InvestTier: 0
 --- !u!1 &1222788092
 GameObject:
   m_ObjectHideFlags: 0
@@ -2709,7 +2747,7 @@ MonoBehaviour:
     m_HighlightedTrigger: Highlighted
     m_PressedTrigger: Pressed
     m_DisabledTrigger: Disabled
-  m_Interactable: 1
+  m_Interactable: 0
   m_TargetGraphic: {fileID: 1236729394}
   m_OnClick:
     m_PersistentCalls:
@@ -2741,6 +2779,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Invested: 0
   InvestCost: 200
+  InvestName: Versnelling
+  InvestTier: 2
 --- !u!114 &1236729394
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2754,7 +2794,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_Color: {r: 0.35686275, g: 0.35686275, b: 0.35686275, a: 1}
   m_RaycastTarget: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
@@ -2830,6 +2870,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Invested: 0
   InvestCost: 0
+  InvestName: 
+  InvestTier: 0
 --- !u!114 &1366812843
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2843,7 +2885,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_Color: {r: 0.35686275, g: 0.35686275, b: 0.35686275, a: 1}
   m_RaycastTarget: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
@@ -3035,6 +3077,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Invested: 0
   InvestCost: 0
+  InvestName: 
+  InvestTier: 0
 --- !u!1 &1442092979
 GameObject:
   m_ObjectHideFlags: 0
@@ -3166,6 +3210,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Invested: 0
   InvestCost: 0
+  InvestName: 
+  InvestTier: 0
 --- !u!114 &1484047412
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3179,7 +3225,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_Color: {r: 0.35686275, g: 0.35686275, b: 0.35686275, a: 1}
   m_RaycastTarget: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
@@ -3467,6 +3513,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Invested: 0
   InvestCost: 100
+  InvestName: Uitlaat
+  InvestTier: 1
 --- !u!1 &1523425512
 GameObject:
   m_ObjectHideFlags: 0
@@ -3544,7 +3592,7 @@ MonoBehaviour:
     m_HighlightedTrigger: Highlighted
     m_PressedTrigger: Pressed
     m_DisabledTrigger: Disabled
-  m_Interactable: 1
+  m_Interactable: 0
   m_TargetGraphic: {fileID: 1523425516}
   m_OnClick:
     m_PersistentCalls:
@@ -3576,6 +3624,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Invested: 0
   InvestCost: 200
+  InvestName: Chassis
+  InvestTier: 2
 --- !u!114 &1523425516
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3589,7 +3639,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_Color: {r: 0.35686275, g: 0.35686275, b: 0.35686275, a: 1}
   m_RaycastTarget: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
@@ -3731,6 +3781,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Invested: 0
   InvestCost: 0
+  InvestName: 
+  InvestTier: 0
 --- !u!114 &1698729801
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3744,7 +3796,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_Color: {r: 0.35686275, g: 0.35686275, b: 0.35686275, a: 1}
   m_RaycastTarget: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
@@ -3845,7 +3897,7 @@ MonoBehaviour:
     m_HighlightedTrigger: Highlighted
     m_PressedTrigger: Pressed
     m_DisabledTrigger: Disabled
-  m_Interactable: 1
+  m_Interactable: 0
   m_TargetGraphic: {fileID: 1710052977}
   m_OnClick:
     m_PersistentCalls:
@@ -3877,6 +3929,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Invested: 0
   InvestCost: 200
+  InvestName: Motor
+  InvestTier: 2
 --- !u!114 &1710052977
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3890,7 +3944,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_Color: {r: 0.35686275, g: 0.35686275, b: 0.35686275, a: 1}
   m_RaycastTarget: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
@@ -3965,7 +4019,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_Color: {r: 0.35686275, g: 0.35686275, b: 0.35686275, a: 1}
   m_RaycastTarget: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
@@ -4003,6 +4057,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Invested: 0
   InvestCost: 0
+  InvestName: 
+  InvestTier: 0
 --- !u!1 &1788012341
 GameObject:
   m_ObjectHideFlags: 0
@@ -4171,6 +4227,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Invested: 0
   InvestCost: 0
+  InvestName: 
+  InvestTier: 0
 --- !u!1 &1868651614
 GameObject:
   m_ObjectHideFlags: 0
@@ -4223,6 +4281,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Invested: 0
   InvestCost: 0
+  InvestName: 
+  InvestTier: 0
 --- !u!114 &1868651617
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4236,7 +4296,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_Color: {r: 0.35686275, g: 0.35686275, b: 0.35686275, a: 1}
   m_RaycastTarget: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
@@ -4391,6 +4451,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Invested: 0
   InvestCost: 0
+  InvestName: 
+  InvestTier: 0
 --- !u!114 &1882002379
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4404,7 +4466,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_Color: {r: 0.35686275, g: 0.35686275, b: 0.35686275, a: 1}
   m_RaycastTarget: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
@@ -4574,6 +4636,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Invested: 0
   InvestCost: 100
+  InvestName: Chassis
+  InvestTier: 1
 --- !u!1 &2033293824
 GameObject:
   m_ObjectHideFlags: 0
