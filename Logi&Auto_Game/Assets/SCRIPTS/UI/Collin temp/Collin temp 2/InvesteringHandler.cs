@@ -17,13 +17,18 @@ public class InvesteringHandler : MonoBehaviour
 
     private Color blackGrey = new Color32(91, 91, 91, 255);
 
-    public int PTT2;
+    private int InvestmentCost;
+
+    private int PTT2;
+    private int PTT3;
 
     public Button Tier2_Button;
-    public List<GameObject> Li_Button = new List<GameObject>();
-    
-    public List<GameObject> Li_T1_Image = new List<GameObject>();
-    public List<GameObject> Li_T2_Image = new List<GameObject>();
+    public Button Tier3_Button;
+    public List<GameObject> T1_Investment_Buttons = new List<GameObject>();
+    public List<GameObject> T2_Investment_Buttons = new List<GameObject>();
+    public List<GameObject> T1_Investment_Line = new List<GameObject>();
+    public List<GameObject> T2_Investment_Line = new List<GameObject>();
+    public List<GameObject> Li_T3_Image = new List<GameObject>();
     #region money methods
     public void AddMoney()
     {
@@ -34,8 +39,9 @@ public class InvesteringHandler : MonoBehaviour
 
     public void RemoveMoney()
     {
-        Money -= 100;
+        Money -= InvestmentCost;
         MoneyText.text = Money.ToString();
+        UpdateColor();
     }
     #endregion
 
@@ -44,17 +50,17 @@ public class InvesteringHandler : MonoBehaviour
         Tier2_Button.interactable = false;
         Tier2_Button.GetComponent<Image>().color = blackGrey;
 
-        foreach (GameObject btn in Li_Button)
+        foreach (GameObject btn in T1_Investment_Buttons)
         {
             btn.GetComponent<Image>().color = Color.yellow;
         }
 
-        foreach (GameObject im in Li_T1_Image)
+        foreach (GameObject im in T1_Investment_Line)
         {
             im.GetComponent<Image>().color = Color.yellow;
         }
 
-        foreach (GameObject im in Li_T2_Image)
+        foreach (GameObject im in T2_Investment_Line)
         {
             im.GetComponent<Image>().color = blackGrey;
         }
@@ -63,9 +69,9 @@ public class InvesteringHandler : MonoBehaviour
 
     public void UpdateColor()
     {
-        if (Money >= 150)
+        if (Money >= InvestmentCost && PTT2 < 4)
         {
-            foreach (GameObject btn in Li_Button)
+            foreach (GameObject btn in T1_Investment_Buttons)
             {
                 Ci_invest = btn.GetComponent<CheckIfInvested>();
                 if (!Ci_invest.Invested)
@@ -78,7 +84,7 @@ public class InvesteringHandler : MonoBehaviour
                 }
             }
 
-            foreach (GameObject btn in Li_T1_Image)
+            foreach (GameObject btn in T1_Investment_Line)
             {
                 Ci_invest = btn.GetComponent<CheckIfInvested>();
                 if (!Ci_invest.Invested)
@@ -91,9 +97,9 @@ public class InvesteringHandler : MonoBehaviour
                 }
             }
         }
-        else if (Money < 100)
+        else if (Money < InvestmentCost && PTT2 < 4)
         {
-            foreach (GameObject btn in Li_Button)
+            foreach (GameObject btn in T1_Investment_Buttons)
             {
                 Ci_invest = btn.GetComponent<CheckIfInvested>();
                 if (!Ci_invest.Invested)
@@ -106,7 +112,7 @@ public class InvesteringHandler : MonoBehaviour
                 }
             }
 
-            foreach (GameObject btn in Li_T1_Image)
+            foreach (GameObject btn in T1_Investment_Line)
             {
                 Ci_invest = btn.GetComponent<CheckIfInvested>();
                 if (!Ci_invest.Invested)
@@ -123,20 +129,21 @@ public class InvesteringHandler : MonoBehaviour
         if (PTT2 == 4)
         {
             Tier2_Button.interactable = true;
+            InvestmentCost = Tier2_Button.GetComponent<CheckIfInvested>().InvestCost;
         }
 
-        if (PTT2 == 4 && !T2Finish && Money >= 150)
+        if (PTT2 == 4 && !T2Finish && Money >= InvestmentCost)
         {
             Tier2_Button.GetComponent<Image>().color = Color.yellow;
-            foreach (GameObject img in Li_T2_Image)
+            foreach (GameObject img in T2_Investment_Line)
             {
                 img.GetComponent<Image>().color = Color.yellow;
             }
         }
-        else if (PTT2 == 4 && !T2Finish && Money < 150)
+        else if (PTT2 == 4 && !T2Finish && Money < InvestmentCost)
         {
             Tier2_Button.GetComponent<Image>().color = Color.red;
-            foreach (GameObject img in Li_T2_Image)
+            foreach (GameObject img in T2_Investment_Line)
             {
                 img.GetComponent<Image>().color = Color.red;
             }
@@ -145,37 +152,39 @@ public class InvesteringHandler : MonoBehaviour
 
     public void InvestmentPressed(int i)
     {
-        if (Money >= 100 && PTT2 < 4)
+        if (PTT2 < 4)
         {
-            PTT2++;
-
-            Li_Button[i].GetComponent<Button>().interactable = false;
-            Li_Button[i].GetComponent<Image>().color = Color.green;
-            Li_Button[i].GetComponent<CheckIfInvested>().Invested = true;
-            Li_T1_Image[i].GetComponent<Image>().color = Color.green;
-            Li_T1_Image[i].GetComponent<CheckIfInvested>().Invested = true;
-            Li_T2_Image[i].GetComponent<Image>().color = Color.yellow;
-            RemoveMoney();
+            InvestmentCost = T1_Investment_Buttons[i].GetComponent<CheckIfInvested>().InvestCost;
             UpdateColor();
         }
-        else if (Money >= 100 && PTT2 == 4)
+
+        if (Money >= InvestmentCost && PTT2 < 4)
+        {
+            PTT2++;
+            T1_Investment_Buttons[i].GetComponent<Button>().interactable = false;
+            T1_Investment_Buttons[i].GetComponent<Image>().color = Color.green;
+            T1_Investment_Buttons[i].GetComponent<CheckIfInvested>().Invested = true;
+            T1_Investment_Line[i].GetComponent<Image>().color = Color.green;
+            T1_Investment_Line[i].GetComponent<CheckIfInvested>().Invested = true;
+            T2_Investment_Line[i].GetComponent<Image>().color = Color.yellow;
+            RemoveMoney();
+        }
+        else if (Money >= InvestmentCost && PTT2 == 4)
         {
             Tier2_Button.interactable = false;
             Tier2_Button.GetComponent<Image>().color = Color.green;
 
-            foreach (GameObject im in Li_T2_Image)
+            foreach (GameObject im in T2_Investment_Line)
             {
                 im.GetComponent<Image>().color = Color.green;
             }
 
-            Li_Button.Clear();
-            Li_T1_Image.Clear();
-            Li_T2_Image.Clear();
+            T1_Investment_Buttons.Clear();
+            T1_Investment_Line.Clear();
+            T2_Investment_Line.Clear();
 
             T2Finish = true;
-            UpdateColor();
             RemoveMoney();
-
         }
     }
 }
