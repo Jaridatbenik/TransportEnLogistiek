@@ -82,4 +82,10 @@ public static class World
         return chunk.GetTile(worldPosition.x - chunk.positionClampers.x, worldPosition.y - chunk.positionClampers.y);
 
     }
+
+    public static void SetTile(Vector2Int worldPosition, Tile tile)
+    {
+        Chunk chunk = GetChunk(worldPosition);
+        chunk.SetTile(worldPosition.x - chunk.positionClampers.x, worldPosition.y - chunk.positionClampers.y, tile);
+    }
 }

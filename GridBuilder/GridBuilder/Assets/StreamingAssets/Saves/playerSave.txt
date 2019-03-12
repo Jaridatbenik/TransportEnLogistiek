@@ -1,0 +1,5 @@
+[
+{"variableName":"currentTheme","value":1,"specialPath":"playerSave"},
+{"variableName":"currentTrail","value":1,"specialPath":"playerSave"},
+{"variableName":"currentPlayer","value":1,"specialPath":"playerSave"},
+]

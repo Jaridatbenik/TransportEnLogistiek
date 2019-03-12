@@ -100,6 +100,11 @@ public class Chunk
         return tileArray[posx, posy];
     }
 
+    public void SetTile(int posx, int posy, Tile tile)
+    {
+        tileArray[posx, posy] = tile;
+    }
+
     /// <summary>
     /// Get the tile from the chunk, position is expected to be the local chunk position
     /// </summary>
@@ -131,7 +136,7 @@ public class Chunk
         {
             for (int f = 0; f < tileArray.GetLength(1); f++)
             {
-                tileArray[i, f].associatesWithThisGameObject.GetComponent<TileGameObject>().UpdateTileGraphics(tileArray[i, f].tileID);
+                tileArray[i, f].associatesWithThisGameObject.GetComponent<TileGameObject>().UpdateTileGraphics();
             }
         }
     }

@@ -12,6 +12,8 @@ public class GameHandler : MonoBehaviour
 
     private float movementDragSpeed = 18f;
 
+    public int size = 10;
+
     void Start()
     {
         tilePrefab = Resources.Load<GameObject>("tile");
@@ -20,25 +22,14 @@ public class GameHandler : MonoBehaviour
 
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.G))
-        {
-            ConveyerBeltData2 temp = new ConveyerBeltData2();
-            temp.Test();
-        }
-
-        if (Input.GetKeyDown(KeyCode.H))
-        {
-            ConveyerBeltData temp = new ConveyerBeltData();
-            temp.Test();
-        }
 
         #region spawnChunks
         if (Input.GetKeyDown(KeyCode.Space))
         {
             Chunk currentChunk;
-            for (int ii = 0; ii < 4; ii++)
+            for (int ii = 0; ii < size; ii++)
             {
-                for (int ff = 0; ff < 4; ff++)
+                for (int ff = 0; ff < size; ff++)
                 {
                     Tile[,] tiles = new Tile[StaticGameValues.chunkSize, StaticGameValues.chunkSize];
                     for (int i = 0; i < tiles.GetLength(0); i++)
@@ -49,7 +40,7 @@ public class GameHandler : MonoBehaviour
                             int num = (int)Random.Range(0, 5);
                             //int num = 0;
 
-                            tiles[i, f] = new Tile(TileStorage.availableTiles[num]);
+                            tiles[i, f] = new Tile(TileStorageHandler.tileStorage[num]);
 
                         }
                     }
@@ -109,7 +100,6 @@ public class GameHandler : MonoBehaviour
             cameraHolder.position += cameraHolder.up * pos.y * movementDragSpeed;
             cameraHolder.position += cameraHolder.right * pos.x * movementDragSpeed;
 
-            Debug.Log(Camera.main.sensorSize.x);
 
             cameraHolder.position = new Vector3(
                 Mathf.Clamp(cameraHolder.position.x, Camera.main.orthographicSize * Camera.main.aspect, 100),

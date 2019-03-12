@@ -5,10 +5,12 @@ using UnityEngine;
 public class Tile
 {
     public int tileID;
-    public List<CustomTileData> customTileData = new List<CustomTileData>();
+    public List<GameObject> customTileData = new List<GameObject>();
     public TileGameObject associatesWithThisGameObject;
     public Chunk isInChunk;
     public Inventory inv;
+    public bool needsUpdate = false;
+    public Sprite tileSprite;
 
     #region Constructors without inventory;
     /// <summary>
@@ -25,7 +27,7 @@ public class Tile
     /// </summary>
     /// <param name="ID">ID of the tile</param>
     /// <param name="data">If there is custom data pass it here</param>
-    public Tile(int ID, CustomTileData data)
+    public Tile(int ID, GameObject data)
     {
         tileID = ID;
         customTileData.Add(data);
@@ -36,10 +38,18 @@ public class Tile
     /// </summary>
     /// <param name="ID">ID of the tile</param>
     /// <param name="data">If there is custom data pass it here</param>
-    public Tile(int ID, List<CustomTileData> data)
+    public Tile(int ID, List<GameObject> data)
     {
         tileID = ID;
         customTileData = data;
+    }
+
+    public Tile(int ID, List<GameObject> data, bool needsUpdate, Sprite sprite)
+    {
+        tileID = ID;
+        customTileData = data;
+        this.needsUpdate = needsUpdate;
+        this.tileSprite = sprite;
     }
 
     /// <summary>
@@ -57,7 +67,7 @@ public class Tile
     /// </summary>
     /// <param name="ID">ID of the tile</param>
     /// <param name="data">If there is custom data pass it here</param>
-    public Tile(int ID, CustomTileData data, TileGameObject assosiateWithThis)
+    public Tile(int ID, GameObject data, TileGameObject assosiateWithThis)
     {
         tileID = ID;
         customTileData.Add(data);
@@ -69,7 +79,7 @@ public class Tile
     /// </summary>
     /// <param name="ID">ID of the tile</param>
     /// <param name="data">If there is custom data pass it here</param>
-    public Tile(int ID, List<CustomTileData> data, TileGameObject assosiateWithThis)
+    public Tile(int ID, List<GameObject> data, TileGameObject assosiateWithThis)
     {
         tileID = ID;
         customTileData = data;
@@ -91,7 +101,7 @@ public class Tile
     /// </summary>
     /// <param name="ID">ID of the tile</param>
     /// <param name="data">If there is custom data pass it here</param>
-    public Tile(int ID, CustomTileData data, Chunk chunk)
+    public Tile(int ID, GameObject data, Chunk chunk)
     {
         tileID = ID;
         customTileData.Add(data);
@@ -103,7 +113,7 @@ public class Tile
     /// </summary>
     /// <param name="ID">ID of the tile</param>
     /// <param name="data">If there is custom data pass it here</param>
-    public Tile(int ID, List<CustomTileData> data, Chunk chunk)
+    public Tile(int ID, List<GameObject> data, Chunk chunk)
     {
         tileID = ID;
         customTileData = data;
@@ -126,7 +136,7 @@ public class Tile
     /// </summary>
     /// <param name="ID">ID of the tile</param>
     /// <param name="data">If there is custom data pass it here</param>
-    public Tile(int ID, CustomTileData data, TileGameObject assosiateWithThis, Chunk chunk)
+    public Tile(int ID, GameObject data, TileGameObject assosiateWithThis, Chunk chunk)
     {
         tileID = ID;
         customTileData.Add(data);
@@ -139,7 +149,7 @@ public class Tile
     /// </summary>
     /// <param name="ID">ID of the tile</param>
     /// <param name="data">If there is custom data pass it here</param>
-    public Tile(int ID, List<CustomTileData> data, TileGameObject assosiateWithThis, Chunk chunk)
+    public Tile(int ID, List<GameObject> data, TileGameObject assosiateWithThis, Chunk chunk)
     {
         tileID = ID;
         customTileData = data;
@@ -152,6 +162,9 @@ public class Tile
         this.tileID = tile.tileID;
         this.customTileData = tile.customTileData;
         this.associatesWithThisGameObject = tile.associatesWithThisGameObject;
+        this.needsUpdate = tile.needsUpdate;
+        this.tileSprite = tile.tileSprite;
+        this.inv = tile.inv;
     }
     #endregion
 
@@ -171,7 +184,7 @@ public class Tile
     /// </summary>
     /// <param name="ID">ID of the tile</param>
     /// <param name="data">If there is custom data pass it here</param>
-    public Tile(int ID, CustomTileData data, Inventory inv)
+    public Tile(int ID, GameObject data, Inventory inv)
     {
         tileID = ID;
         customTileData.Add(data);
@@ -183,7 +196,7 @@ public class Tile
     /// </summary>
     /// <param name="ID">ID of the tile</param>
     /// <param name="data">If there is custom data pass it here</param>
-    public Tile(int ID, List<CustomTileData> data, Inventory inv)
+    public Tile(int ID, List<GameObject> data, Inventory inv)
     {
         tileID = ID;
         customTileData = data;
@@ -206,7 +219,7 @@ public class Tile
     /// </summary>
     /// <param name="ID">ID of the tile</param>
     /// <param name="data">If there is custom data pass it here</param>
-    public Tile(int ID, CustomTileData data, TileGameObject assosiateWithThis, Inventory inv)
+    public Tile(int ID, GameObject data, TileGameObject assosiateWithThis, Inventory inv)
     {
         tileID = ID;
         customTileData.Add(data);
@@ -219,7 +232,7 @@ public class Tile
     /// </summary>
     /// <param name="ID">ID of the tile</param>
     /// <param name="data">If there is custom data pass it here</param>
-    public Tile(int ID, List<CustomTileData> data, TileGameObject assosiateWithThis, Inventory inv)
+    public Tile(int ID, List<GameObject> data, TileGameObject assosiateWithThis, Inventory inv)
     {
         tileID = ID;
         customTileData = data;
@@ -243,7 +256,7 @@ public class Tile
     /// </summary>
     /// <param name="ID">ID of the tile</param>
     /// <param name="data">If there is custom data pass it here</param>
-    public Tile(int ID, CustomTileData data, Chunk chunk, Inventory inv)
+    public Tile(int ID, GameObject data, Chunk chunk, Inventory inv)
     {
         tileID = ID;
         customTileData.Add(data);
@@ -256,7 +269,7 @@ public class Tile
     /// </summary>
     /// <param name="ID">ID of the tile</param>
     /// <param name="data">If there is custom data pass it here</param>
-    public Tile(int ID, List<CustomTileData> data, Chunk chunk, Inventory inv)
+    public Tile(int ID, List<GameObject> data, Chunk chunk, Inventory inv)
     {
         tileID = ID;
         customTileData = data;
@@ -281,7 +294,7 @@ public class Tile
     /// </summary>
     /// <param name="ID">ID of the tile</param>
     /// <param name="data">If there is custom data pass it here</param>
-    public Tile(int ID, CustomTileData data, TileGameObject assosiateWithThis, Chunk chunk, Inventory inv)
+    public Tile(int ID, GameObject data, TileGameObject assosiateWithThis, Chunk chunk, Inventory inv)
     {
         tileID = ID;
         customTileData.Add(data);
@@ -295,7 +308,7 @@ public class Tile
     /// </summary>
     /// <param name="ID">ID of the tile</param>
     /// <param name="data">If there is custom data pass it here</param>
-    public Tile(int ID, List<CustomTileData> data, TileGameObject assosiateWithThis, Chunk chunk, Inventory inv)
+    public Tile(int ID, List<GameObject> data, TileGameObject assosiateWithThis, Chunk chunk, Inventory inv)
     {
         tileID = ID;
         customTileData = data;

@@ -5,22 +5,22 @@ using UnityEngine;
 [RequireComponent(typeof(SpriteRenderer))]
 public class TileGameObject : MonoBehaviour
 {
-    Tile assosiatedTile;
+    public Tile assosiatedTile;
     TileUpdateHandler updateHandler;
     SpriteRenderer sprite;
-    List<CustomTileData> customTileData = new List<CustomTileData>();
+    List<GameObject> customTileData = new List<GameObject>();
 
     void Start()
     {
         sprite = GetComponent<SpriteRenderer>();
-        UpdateTileGraphics(assosiatedTile.tileID);
+        UpdateTileToID(assosiatedTile.tileID);
     }
 
     void AddUpdateHandler()
     {
         RemoveUpdateHandler();
         updateHandler = gameObject.AddComponent<TileUpdateHandler>();
-        updateHandler.obj = this;
+        updateHandler.obj = GetComponent<TileGameObjectEventHandler>();
     }
 
     void RemoveUpdateHandler()
@@ -29,20 +29,33 @@ public class TileGameObject : MonoBehaviour
         Destroy(gameObject.GetComponent<TileUpdateHandler>());
     }
 
-    public void TileUpdate()
+    void SpawnTileHandlers()
     {
-        //Debug.Log("update");
+        RemoveSpawnedTileHandlers();
+
+        for(int i = 0; i < assosiatedTile.customTileData.Count; i++)
+        {
+            GameObject obj = Instantiate(assosiatedTile.customTileData[i], transform, true);
+            obj.transform.position = gameObject.transform.position;
+            customTileData.Add(obj);
+        }
     }
 
-    public void TileFixedUpdate()
+    void RemoveSpawnedTileHandlers()
     {
-        //Debug.Log("fixed update");
+        for(int i = 0; i < customTileData.Count; i++)
+        {
+            Destroy(customTileData[i]);
+        }
+        customTileData.Clear();
     }
 
     public void UpdateTileToID(int id)
     {
-        UpdateTileGraphics(id);
-        if (TileStorage.needsUpdate[id])
+        OverwriteTileGameObject(new Tile(TileStorageHandler.GetTileFromID(id)));
+        UpdateTileGraphics();
+        SpawnTileHandlers();
+        if (assosiatedTile.needsUpdate)
         {
             AddUpdateHandler();
         }else
@@ -51,7 +64,7 @@ public class TileGameObject : MonoBehaviour
         }
     }
 
-    public void UpdateTileGraphics(int tileID)
+    public void UpdateTileGraphics()
     {
         if(sprite == null)
         {
@@ -59,10 +72,10 @@ public class TileGameObject : MonoBehaviour
         }
         try
         {
-            sprite.sprite = TileSprites.availableTileSprites[tileID];
+            sprite.sprite = assosiatedTile.tileSprite;
         }catch
         {
-            Debug.Log("Sprite for tileID : " + tileID + " was not found");
+            Debug.Log("Sprite for tileID : " + assosiatedTile.tileID + " was not found");
             sprite.sprite = null;
         }
     }
@@ -74,6 +87,17 @@ public class TileGameObject : MonoBehaviour
         tile.associatesWithThisGameObject = tileObject.GetComponent<TileGameObject>();
         tileObject.transform.localPosition = new Vector3(posy + posychunk, posx + posxchunk);
         tileObject.name = "tile" + (posx + posxchunk) + " : " + (posy + posychunk);
+        return tileObject;
+    }
+
+    public GameObject OverwriteTileGameObject(Tile tile)
+    {
+        GameObject tileObject = gameObject;
+        //Debug.Log("voor : "+ World.GetTile(new Vector2Int((int)transform.position.y, (int)transform.position.x)).tileID);
+        tileObject.GetComponent<TileGameObject>().assosiatedTile = tile;
+        tile.associatesWithThisGameObject = tileObject.GetComponent<TileGameObject>();
+        World.SetTile(new Vector2Int((int)transform.position.y, (int)transform.position.x), tile);
+        //Debug.Log("na : " + World.GetTile(new Vector2Int((int)transform.position.y, (int)transform.position.x)).tileID);
         return tileObject;
     }
 }
