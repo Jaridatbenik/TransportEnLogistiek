@@ -4,7 +4,12 @@ using UnityEngine;
 
 public class TileUpdateHandler : MonoBehaviour
 {
-    public TileGameObject obj;
+    public TileGameObjectEventHandler obj;
+
+    void Start()
+    {
+        obj = GetComponent<TileGameObjectEventHandler>();
+    }
 
     void Update()
     {

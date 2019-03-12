@@ -1,0 +1,28 @@
+    ---Save System---   (ver 1.0.0)
+
+- "The save system is used to Save Variables permanently for them to be used at a later time"
+- "The save system is capable of storing a lot of variable types, try and see what types of variables work well or dont work at all"
+- "The save system is quite raw at the moment future improvements will be made"
+
+	-Import-
+"using Downhill.SaveHandler;"
+
+     -Calling Methods-
+SaveHandler."MethodName()";
+
+ -Note: You can extend your class with SaveHandler (this class is a MonoBehaviour), 
+        this way you dont have to type SaveHandler before each method
+
+    -Available Methods-
+
+SaveVariable<T>(string variableName, object value);             		| "This method is used to instantly save a variable"
+SaveVariable<T>(SavePaths path, string variableName, object value);   		| "This method is used to instantly save a variable"
+
+QueueVariable<T>(string variableName, T value)					| "This method is used to queue a variable for it to be saved later"
+QueueVariable<T>(SavePaths path, string variableName, T value)			| "This method is used to queue a variable for it to be saved later"
+
+PoofQueue();									| "This method is used to clear the whole queue"
+SaveQueue();									| "This method is used to save all the variable stored in the Queue" !Clears the Queue after saving!
+LoadSaveData();									| "Loads all the available variables and values stored in the files"
+
+T GetValue<T>(string variableName);						| "Gets the stored variable value from its name" !You have to load all the save data before hand, use the LoadSaveData(); method!
