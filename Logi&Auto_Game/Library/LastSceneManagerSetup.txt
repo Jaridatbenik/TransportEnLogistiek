@@ -1,4 +1,8 @@
 sceneSetups:
-- path: Assets/SCENES/Build-Scenes/Gameplay.unity
+<<<<<<< HEAD
+- path: Assets/SCRIPTS/UI/Collin temp/Collin temp 2/Colin_TScene 2.unity
+=======
+- path: Assets/SCENES/TestScenes/Timur_TScene.unity
+>>>>>>> no message
   isLoaded: 1
   isActive: 1

@@ -2,18 +2,20 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class ConveyerBeltData : CustomTileData
+public class ConveyerBeltData : MonoBehaviour
 {
-    public override void Test()
+    TileGameObjectEventHandler handler;
+    Tile tile;
+
+    void Start()
+    {
+        handler = transform.parent.GetComponent<TileGameObjectEventHandler>();
+        tile = transform.parent.GetComponent<TileGameObject>().assosiatedTile;
+        handler.updateEvent.AddListener(ConveyerUpdate);
+    }
+
+    public void ConveyerUpdate()
     {
         
-    }
-}
-
-public class ConveyerBeltData2 : CustomTileData
-{
-    public override void Test()
-    {
-       
     }
 }

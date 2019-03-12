@@ -1,0 +1,3 @@
+[
+{"variableName":"test1","value":["zin1","zin2"],"specialPath":"generalSave"},
+]

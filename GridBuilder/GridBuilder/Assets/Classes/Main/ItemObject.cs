@@ -24,7 +24,7 @@ public class ItemObject : MonoBehaviour
         {
             currentID = showThisItem.itemID;
             spriteRenderer.sprite = ItemSprites.availableItemSprites[currentID];
-            transform.position = new Vector3((float)((int)Random.Range(0, 40)) +0.5f, (float)((int)Random.Range(0, 40)) + 0.5f, -1);
+            //transform.position = new Vector3((float)((int)Random.Range(0, 40)) +0.5f, (float)((int)Random.Range(0, 40)) + 0.5f, -1);
         }
     }
 }

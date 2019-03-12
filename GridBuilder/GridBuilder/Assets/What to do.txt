@@ -1,0 +1,11 @@
+-------------------------------------------------TO DO-------------------------------------------------
+Fix de instabiliteit in de tile editor, ipv de index te pakken kijk je gewoon of het id wel of niet bestaat bij het maken van een nieuwe tile (4)
+Zorg dat de functionaliteit die jij aan een tile assigend ook daadwerkelijk inspawned, dankjewel. (8)
+
+
+--------------------------------------------------DONE--------------------------------------------------
+Done -- Ja euh, je update vroeger alleen maar de tile sprite, en niet de tile data, fix dat eens, want nu werkt niks meer. (10)
+Done -- Fix data lek, je update nu wel de tile Gameobject maar niet de worldtiles list, dit is euhh cruciaal. fix dit ff, DANKJEWEL (10)
+
+------------------------------------------------DENK ERAAN--------------------------------------------------
+De X en de Y as moet je omdraaien om tiles aan te roepen.

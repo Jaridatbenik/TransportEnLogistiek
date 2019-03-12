@@ -6,6 +6,8 @@ using UnityEngine.UI;
 public class EdictChoiceScript : MonoBehaviour
 {
     public Toggle[] toggleArray;
+    EdictDuurzaamheid ED;
+    public bool canChange;
 
     public void ActiveToggle()
     {
@@ -13,7 +15,10 @@ public class EdictChoiceScript : MonoBehaviour
         {
             if (toggleArray[i].isOn == true)
             {
-
+               //monthlyMoney += ED.geld;
+               //monthlyDuurzaamheid += ED.duurzaamheid;
+               //money --;
+               //elke maand kan je veranderen
             }
         }
     }
