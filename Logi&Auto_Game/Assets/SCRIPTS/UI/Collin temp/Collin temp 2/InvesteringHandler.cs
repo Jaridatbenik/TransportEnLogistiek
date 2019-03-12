@@ -17,12 +17,15 @@ public class InvesteringHandler : MonoBehaviour
 
     private bool T3Finish;
 
-    private int InvestmentCost;
+    public int InvestmentCost;
 
     private int PTT2;
     private int PTT3;
 
     #region Needed lists and buttons
+    /// <summary>
+    /// Dit zijn alle buttons en lists die er nodig zijn voor de research tree.
+    /// </summary>
     public Button Tier2_Button;
     public Button Tier3_Button;
     public List<GameObject> T1_Investment_Buttons = new List<GameObject>();
@@ -51,17 +54,9 @@ public class InvesteringHandler : MonoBehaviour
 
     private void Start()
     {
-
-        foreach (GameObject btn in T1_Investment_Buttons)
-        {
-            btn.GetComponent<Image>().color = Color.yellow;
-        }
-
-        foreach (GameObject im in First_Investment_Line)
-        {
-            im.GetComponent<Image>().color = Color.yellow;
-        }
-
+        InvestmentCost = 100;
+        UpdateColor();
+        
     }
 
     public void UpdateColor()
