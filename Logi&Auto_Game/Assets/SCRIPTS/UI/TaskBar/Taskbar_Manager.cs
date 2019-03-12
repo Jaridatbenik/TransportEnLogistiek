@@ -24,6 +24,7 @@ public class Taskbar_Manager : MonoBehaviour
             if(tabWindows[i].active)
             {
                 tabAnims[i].SetTrigger("Exit");
+                tabAnims[i].ResetTrigger("Enter");
                 tabWindows[i].active = false;   
             }
             else if(!tabWindows[i].active)
@@ -35,11 +36,13 @@ public class Taskbar_Manager : MonoBehaviour
         if(!button.active)
         {
             anim.SetTrigger("Enter");
+            anim.ResetTrigger("Exit");
             button.active = true;
         }    
         else if(button.active)
         {
             anim.SetTrigger("Exit");
+            anim.ResetTrigger("Enter");
             button.active = false;
         }    
     }

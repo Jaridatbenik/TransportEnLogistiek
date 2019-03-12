@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class TimeSystem : MonoBehaviour
 {
+    [SerializeField]NewsAnimEvents news = null;
+
     float currentTime = 0;
     public float timeSpeed = 60;
     [SerializeField]
@@ -68,6 +70,7 @@ public class TimeSystem : MonoBehaviour
         {
             days += dayIncrement;
             hours = 0;
+            NewDay();
         }
         int monthIncrement = Mathf.RoundToInt(days / monthDayAmount[months]);
         if (monthIncrement > 0)
@@ -114,9 +117,14 @@ public class TimeSystem : MonoBehaviour
         }
     }
 
-    void NewMonth()
+    void NewDay()
     {
-        print("NEW MONTH");
+        news.SpawnNewContent("Dagelijkse kosten", "Omdat dit een prototype-versie van het spel is, is er nog geen geld-systeem. Anders zouden hier je kosten staan.");
+    }
+
+    void NewMonth()
+    {        
+        news.SpawnNewContent("Maandelijkse kosten", "Maandelijkse kosten bedragen: /n iets.");
         //Send Mail.
     }
 

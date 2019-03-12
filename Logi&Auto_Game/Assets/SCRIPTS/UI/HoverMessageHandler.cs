@@ -6,7 +6,9 @@ public class HoverMessageHandler : MonoBehaviour
 {
     RectTransform hoverMessage;
     RectTransform hoverMessageImage;
+        
     Camera cam;
+
     void Update()
     {
         RaycastHit2D hit = Physics2D.Raycast(Camera.main.ScreenToWorldPoint(Input.mousePosition), Vector2.zero);
